@@ -3,7 +3,7 @@ FFMPEG_DIR=${CURDIR}/FFmpeg
 
 all: ffmpeg-build
 
-test: ffmpeg-build
+test:
 				${BUILD_DIR}/bin/ffmpeg -i example/example.mp4 -vf "thumbnail_opencl" \
 				-vframes 1 example/thumbnail.jpg
 
