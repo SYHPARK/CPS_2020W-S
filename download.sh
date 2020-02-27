@@ -1,2 +1,2 @@
 #!/bin/bash -eux
-git submoudle add https://github.com/whhan/FFmpeg
+git submodule add https://github.com/whhan/FFmpeg
