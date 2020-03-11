@@ -7,7 +7,7 @@ test:
 		rm -f example/thumb.avi && \
 		${BUILD_DIR}/bin/ffmpeg -loglevel debug -an -init_hw_device opencl=ocl:0.0 \
 		-filter_hw_device ocl -i example/example.mp4 -vf \
-		"hwupload, thumbnail_opencl, hwdownload" -vframes 1 example/thumb.avi
+		"format=nv12,hwupload,thumbnail_opencl,hwdownload,format=nv12" -vframes 1 example/thumb.jpg
 
 ffmpeg-build: ffmpeg-config
 				(cd ${FFMPEG_DIR} && make -j && make install)
