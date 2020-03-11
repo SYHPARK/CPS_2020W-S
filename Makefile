@@ -11,9 +11,8 @@ ffmpeg-build: ffmpeg-config
 				(cd ${FFMPEG_DIR} && make -j && make install)
 
 ffmpeg-config: ${BUILD_DIR}
-				(cd ${FFMPEG_DIR} && ./configure --prefix=${BUILD_DIR} \
-																				 --enable-opencl       \
-																				 --disable-x86asm)
+				(cd ${FFMPEG_DIR} &&  \
+./configure --prefix=${BUILD_DIR} --enable-opencl --disable-x86asm --enable-debug --disable-optimizations --disable-mmx --disable-stripping)
 
 ${BUILD_DIR}:
 				mkdir -p ${BUILD_DIR}
