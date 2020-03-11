@@ -4,8 +4,9 @@ FFMPEG_DIR=${CURDIR}/FFmpeg
 all: ffmpeg-build
 
 test:
-				${BUILD_DIR}/bin/ffmpeg -i example/example.mp4 -vf "thumbnail_opencl" \
-				-vframes 1 example/thumbnail.jpg
+		${BUILD_DIR}/bin/ffmpeg -loglevel debug -an -init_hw_device opencl=ocl:0.0 \
+		-filter_hw_device ocl -i example/example.mp4 -vf \
+		"hwupload, thumbnail_opencl, hwdownload" example/thumb.avi
 
 ffmpeg-build: ffmpeg-config
 				(cd ${FFMPEG_DIR} && make -j && make install)
