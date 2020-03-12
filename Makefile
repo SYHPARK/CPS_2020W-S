@@ -16,8 +16,8 @@ ffmpeg-config: ${BUILD_DIR}
 		(cd ${FFMPEG_DIR} && ./configure --prefix=${BUILD_DIR} --enable-opencl --disable-x86asm)
 
 ${BUILD_DIR}:
-				mkdir -p ${BUILD_DIR}
+		mkdir -p ${BUILD_DIR}
 
 
 clean:
-				rm -rf ${BUILD_DIR}
+		rm -rf ${BUILD_DIR}
